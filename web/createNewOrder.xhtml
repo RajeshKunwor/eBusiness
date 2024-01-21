@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Create a New Order</ui:define>
+        <ui:define name="heading">Create a New Order</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Customer : "/>
+                        </td>
+                        <td>
+                            
+                            <h:selectOneMenu value="#{orderController.customer.id}" required="true" requiredMessage="Please select customer!" id="customer">
+                                <f:selectItems value="#{customerController.customerList}" var="cust" itemValue="#{cust.id}" itemLabel="#{cust.name}" />
+                            </h:selectOneMenu>
+
+                            <h:message errorStyle="color:red" for="customer" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Item : "/>
+                        </td>
+
+
+                        <td>
+                            <h:selectOneMenu value="#{orderController.product.id}" required="true" requiredMessage="Please select item!" id="item">
+                                <f:selectItems value="#{productController.productList}" var="prod" itemValue="#{prod.id}" itemLabel="#{prod.title} - #{prod.price}" />
+                            </h:selectOneMenu>
+
+
+                            <h:message errorStyle="color:red" for="item" />
+                        </td>
+                    </tr><!-- comment -->    
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Quantity"/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{orderController.order.quantity}" required="true" requiredMessage="Please enter quanity!" id="quanity"/>
+                            <h:message errorStyle="color:red" for="quanity" />
+                        </td>
+                    </tr>
+                </table>
+
+                <h:commandButton value="Create a new order" action="#{orderController.doCreateOrder}"/>
+
+            </h:form>
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listOrders.faces">List of Orders</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">List of Orders</ui:define>
+        <ui:define name="heading">List of Orders</ui:define>
+        <ui:define name="content">
+
+
+            <h:dataTable value="#{orderController.orderList}" var="order" id="data-table">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Order#"/>
+                    </f:facet>
+                    <h:outputText value="#{order.id}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Customer"/>
+                    </f:facet>
+                    <h:form>
+                        <h:commandLink value="#{order.customer.name}" action="#{customerController.viewDetails(order.customer)}"></h:commandLink>
+                    </h:form>
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Item"/>
+                    </f:facet>
+                    <h:form>
+                        <h:commandLink value="#{order.item.title}" action="#{productController.searchItem(order)}"></h:commandLink>
+                    </h:form>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Action"/>
+                    </f:facet>
+                    <h:form>
+                        <h:commandLink value="Delete" action="#{orderController.deleteOrder(order)}"></h:commandLink>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+            <p>Total Orders: <h:outputText value="#{orderController.orderList.size()}"/></p>
+
+
+
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="createNewOrder.faces">Create a New Order </a>| 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
+

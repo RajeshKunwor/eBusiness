@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Sagar Bk -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Customer Details</ui:define>
+        <ui:define name="heading">Customer: <h:outputText value="#{customerController.customer.name}"/></ui:define>
+        <ui:define name="content">
+            <h1>Details</h1>
+            <p>ID: <h:outputText value="#{customerController.customer.id}"/></p>
+            <p>Name: <h:outputText value="#{customerController.customer.name}"/></p>
+            <p>Address: <h:outputText value="#{customerController.customer.address}"/></p>
+            <p>Phone Number: <h:outputText value="#{customerController.customer.phoneNumber}"/></p>
+            <p>Email: <h:outputText value="#{customerController.customer.email}"/></p>
+            
+            <h1>Orders(<h:outputText value="#{customerController.orderList.size()}"/>)</h1>
+            <h:dataTable value="#{customerController.orderList}" var="order" id="data-table">
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Order#"/>
+                    </f:facet>
+                    <h:outputText value="#{order.id}"/>
+                </h:column>
+
+               
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Item"/>
+                    </f:facet>
+                     <h:form>
+                    <h:outputText value="#{order.item.title}"/>
+                    </h:form>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Created Date"/>
+                    </f:facet>
+                    <h:outputText value="#{order.createdDate}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Unit Price"/>
+                    </f:facet>
+                    $<h:outputText value="#{order.item.price}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Qty"/>
+                    </f:facet>
+                    <h:outputText value="#{order.quantity}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Total Price"/>
+                    </f:facet>
+                    <b>$<h:outputText value="#{order.item.price * order.quantity}">
+                        <f:convertNumber pattern="#0.00" />
+                        </h:outputText></b>
+                </h:column>
+
+            </h:dataTable>
+            
+
+            
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listCustomers.faces">Customer List </a>| 
+            <a href="listOrders.faces">Order List</a>|
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
+
+

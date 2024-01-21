@@ -1,0 +1,40 @@
+body {
+    font-family: tahoma, verdana, arial, serif;
+    background-color: #f2f2f2;
+}
+h1#heading {
+    background-color: #506987;
+    color: #f5f5f5;
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    padding: 3px 0px 3px 0px;
+}
+p#footer {
+    margin: 20px 0px 0px 0px;
+    border-top: 1px solid #333;
+    padding: 3px 0px 0px 3px;
+}
+table#data-table {
+    border-collapse: collapse;
+}
+table#data-table th {
+    font-weight: bold;
+    background-color: #ddd;
+}
+table#data-table tr {
+    border-bottom: 1px solid #ddd;
+}
+table#data-table th,table#data-table td {
+    padding: 1px 15px 1px 0px;
+}
+
+ul#messages, ul#messages li {
+    list-style: none;
+    margin: 0;
+}
+ul#messages { padding: 0; margin-bottom: 20px; }
+ul#messages li { margin-bottom: 2px; }
+ul#messages li.msg_error,
+ul#messages li.msg_fatal { color: red; }
+ul#messages li.msg_warn { color: darkorange; }
+ul#messages li.msg_info { color: blue; }

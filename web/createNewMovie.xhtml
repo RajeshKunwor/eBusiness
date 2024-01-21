@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Anil Khand -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:apress="http://xmlns.jcp.org/jsf/composite/apress">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Create a New Movie</ui:define>
+        <ui:define name="heading">Create a New Movie</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+                    <ago:newProduct product="#{productController.movie}" />
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Duration(minutes) : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{productController.movie.duration}" required="true" requiredMessage="Please enter duration!" id="duration"/>
+                            <h:message errorStyle="color:red" for="duration" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Special Features : "/>
+                        </td>
+                        <td>
+                            <h:inputTextarea value="#{productController.movie.specialFeatures}" cols="20" rows="5" required="true" requiredMessage="Please enter special features!" id="specialFeatures"/>
+                            <h:message errorStyle="color:red" for="specialFeatures" />
+                        </td>
+                    </tr>
+                </table>
+
+                <h:commandButton value="Create a movie" action="#{productController.doCreateMovie}"/>
+
+            </h:form>
+           
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listMovies.faces">The Stock of Movies</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

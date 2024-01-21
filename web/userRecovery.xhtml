@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store">
+
+<ui:composition template="layout.xhtml">
+    
+<ui:define name="title">Recovery</ui:define>
+<ui:define name="heading">Recover Your Account</ui:define>
+<ui:define name="content">
+    
+        <h:form>
+            
+            <h:outputLabel value="Retrieve the recovery code from  "/>
+            <h:outputText value="#{authBean.email}"/>
+            <h:outputLabel value=" and enter below!"/>
+            
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Recovery Code"/>
+                <h:inputText value="#{authBean.verificationcode}" required="true" requiredMessage="Please enter the verification code!" id="verficationcode" />
+                <h:message errorStyle="color:red" for="verficationcode" />
+                
+                <h:outputLabel value="First Name"/>
+                <h:outputLabel value="#{authBean.ruser.firstname}" id="fname" />
+                <h:message errorStyle="color:red" for="fname" />
+                
+                <h:outputLabel value="Last Name"/>
+                <h:outputLabel value="#{authBean.ruser.lastname}" id="lname" />
+                <h:message errorStyle="color:red" for="lname" />
+                
+                <h:outputLabel value="Username"/>
+                <h:outputLabel value="#{authBean.ruser.username}" id="username" />
+                <h:message errorStyle="color:red" for="username" />
+                                
+                <h:outputLabel value="New Password"/>
+                <h:inputSecret value="#{authBean.password}" required="true" requiredMessage="Please enter a password!" id="pass" />
+                <h:message errorStyle="color:red" for="pass" />
+               
+                <h:outputLabel value="New Password (verify)"/>
+                <h:inputSecret value="#{authBean.passwordv}" required="true" requiredMessage="Please enter the verification password!" id="passv" />
+                <h:message errorStyle="color:red" for="passv" />
+                
+                <h:commandButton value="Recover" action="#{authBean.resetUser}" />
+                
+            </h:panelGrid>
+        </h:form>
+
+</ui:define>
+<ui:define name="footer">
+    <a href="index.xhtml">Welcome Page</a>
+</ui:define>
+
+</ui:composition>
+</html>
+

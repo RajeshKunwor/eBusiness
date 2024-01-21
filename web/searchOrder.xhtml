@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+     >
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Search for an Order</ui:define>
+        <ui:define name="heading">Search for an Order</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="order# : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{orderController.order.id}" required="true" requiredMessage="Please enter order id!" id="id"/>
+                            <h:message errorStyle="color:red" for="id" />
+                        </td>
+                    </tr>
+                    
+                </table>
+
+                <h:commandButton value="Search for an order" action="#{orderController.searchOrder}"/>
+
+            </h:form>
+            
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listOrders.faces">List of Orders</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

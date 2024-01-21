@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Sagar Bk -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">List of Customer</ui:define>
+        <ui:define name="heading">List of Customer</ui:define>
+        <ui:define name="content">
+
+
+            <h:dataTable value="#{customerController.customerList}" var="c" id="data-table">
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                    <h:form>
+                        <h:outputText value="#{c.name}"/>
+                    </h:form>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Address"/>
+                    </f:facet>
+                    <h:outputText value="#{c.address}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Orders"/>
+                    </f:facet>
+                    <h:outputText value="#{customerController.countOrder(c)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Action"/>
+                    </f:facet>
+                    <h:form>
+                        <h:commandLink value="View Details" action="#{customerController.viewDetails(c)}"/>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+            <p>Total customers: <h:outputText value="#{customerController.customerList.size()}"/></p>
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="createNewCustomer.faces">Create a New Customer</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
+
