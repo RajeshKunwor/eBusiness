@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Sagar Bk -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store">
+
+<ui:composition template="layout.xhtml">
+    
+<ui:define name="title">Login</ui:define>
+<ui:define name="heading">Login Your Account</ui:define>
+<ui:define name="content">
+    
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Username"/>
+                <h:inputText value="#{authBean.username}" required="true" requiredMessage="Please enter a username!" id="username" />
+                <h:message errorStyle="color:red" for="username" />
+                
+                <h:outputLabel value="Password"/>
+                <h:inputSecret value="#{authBean.password}" required="true" requiredMessage="Please enter a password!" id="pass" />
+                <h:message errorStyle="color:red" for="pass" />
+                                
+                <h:commandButton value="Login" action="#{authBean.validateUser}" />
+                
+            </h:panelGrid>
+            
+            <a href="emailRecovery.xhtml">Forget your user name and/or password</a>
+            
+        </h:form>
+
+</ui:define>
+<ui:define name="footer">
+    <a href="emailVerification.xhtml">Create a New Account</a> |
+    <a href="index.xhtml">Welcome Page</a>
+</ui:define>
+
+</ui:composition>
+</html>
+

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Sagar Bk -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+     >
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Search for a Customer</ui:define>
+        <ui:define name="heading">Search for a Customer</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Name : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{customerController.customer.name}" required="true" requiredMessage="Please enter name!" id="name"/>
+                            <h:message errorStyle="color:red" for="name" />
+                        </td>
+                    </tr>
+                    
+                </table>
+
+                <h:commandButton value="Search for a customer" action="#{customerController.searchCustomer}"/>
+
+            </h:form>
+            
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listCustomers.faces">Customer List</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

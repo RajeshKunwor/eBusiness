@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Anil Khand -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress"
+      xmlns:apress="http://xmlns.jcp.org/jsf/composite/apress">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Create a New Game</ui:define>
+        <ui:define name="heading">Create a New Game</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+                    <ago:newProduct product="#{productController.game}"/>
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="HD Video Output : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{productController.game.hdVideoOputput}" required="ture"  requiredMessage="Please enter HD Video Oputput!" id="hdVideoOutput"/>
+                            <h:message errorStyle="color:red" for="hdVideoOuput" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Hard Drive Space : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{productController.game.hardDriveSpace}" required="true" requiredMessage="Please enter Hard Drive Space!" id="hardDriveSpace"/>
+                            <h:message errorStyle="color:red" for="hardDriveSpace" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Number of Players : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{productController.game.noOfPlayer}" required="true" requiredMessage="Please enter number of players!" id="players"/>
+                            <h:message errorStyle="color:red" for="players" />
+                        </td>
+                    </tr>
+
+
+
+
+                </table>
+
+                <h:commandButton value="Create a game" action="#{productController.doCreateGame}"/>
+
+            </h:form>
+            
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listGames.faces">The Stock of Games</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

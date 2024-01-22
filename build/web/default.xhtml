@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+<ui:composition template="layout.xhtml">
+    
+<ui:define name="title">eBusiness</ui:define>
+<ui:define name="heading">The eBusiness: Product, Customer, and Order Management</ui:define>
+<ui:define name="content">
+    <h2>PRODUCTS</h2>
+    <a href="createNewMovie.faces">Create a New Movie</a>|
+    <a href="listMovies.faces">The Stock of Movies</a>|
+    <a href="searchMovie.faces">Search for a Movie</a>
+    <br></br>
+    <a href="createNewGame.faces">Create a New Game</a>|
+    <a href="listGames.faces">The Stock of Games</a>|
+    <a href="searchGame.faces">Search for a Game</a>
+    <h2>CUSTOMERS</h2>
+    <a href="createNewCustomer.faces">Create a New Customer</a>|
+    <a href="listCustomers.faces">List of Customers</a>|
+    <a href="searchCustomer.faces">Search for a Customer</a>
+    <h2>ORDERS</h2>
+    <a href="createNewOrder.faces">Create a New Order</a>|
+    <a href="listOrders.faces">List of Orders</a>|
+    <a href="searchOrder.faces">Search for a Order</a>
+   
+    
+</ui:define>
+
+<ui:define name="footer">
+    <a href="logout.xhtml">Logout</a>
+</ui:define>
+
+</ui:composition> 
+</html>

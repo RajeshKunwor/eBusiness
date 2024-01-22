@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <composite:interface>
+        <composite:attribute name="item" required="true"/>
+        <composite:attribute name="itemName" required="true"/>
+    </composite:interface>
+    
+    <composite:implementation>
+        <h:form>
+            <h:panelGrid columns="3">
+       
+                <h:outputLabel value="Title" for="title"/>
+                <h:inputText value="#{cc.attrs.item.title}" id="title" required="true"
+                    requiredMessage="Please enter a #{cc.attrs.itemName} title!"/>
+                <h:message errorStyle="color:red" for="title" />
+       
+                <h:outputLabel value="Author" for="author"/>
+                <h:inputText value="#{cc.attrs.item.author}" id="author" required="true"
+                    requiredMessage="Please enter a #{cc.attrs.itemName} author!"/>
+                <h:message errorStyle="color:red" for="author" />
+       
+                <h:outputLabel value="Price" for="price"/>
+                <h:inputText value="#{cc.attrs.item.price}" id="price" required="true"
+                    requiredMessage="Please enter the price of the #{cc.attrs.itemName}!"/>
+                <h:message errorStyle="color:red" for="price" />
+       
+                <h:outputLabel value="Description" for="description"/>
+                <h:inputTextarea value="#{cc.attrs.item.description}" id="description" cols="20" rows="5"/>
+                <h:message errorStyle="color:red" for="description" />
+       
+        </h:panelGrid>
+        
+    </h:form>
+       
+    </composite:implementation>
+    
+</html>

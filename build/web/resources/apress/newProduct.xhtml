@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Rajesh Kunwor -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <composite:interface>
+        <composite:attribute name="product" required="true"/>
+        <composite:attribute name="style" required="false"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <tr style="#{cc.attrs.style}">
+            <td>Title :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.title}" required="true"  requiredMessage="Please enter title!" id="title"/>
+                <h:message errorStyle="color:red" for="title" />
+            </td>
+        </tr>
+
+        <tr style="#{cc.attrs.style}">
+            <td>Description :</td>
+            <td>
+                <h:inputTextarea value="#{cc.attrs.product.description}" cols="20" rows="5" id="description" required="true" requiredMessage="Please enter description!"/>
+                <h:message errorStyle="color:red" for="description" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Company :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.company}" required="true" requiredMessage="Please enter company!" id="company"/>
+                <h:message errorStyle="color:red" for="company" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Platform :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.platform}" required="true" requiredMessage="Please enter platfrom!" id="platform"/>
+                <h:message errorStyle="color:red" for="platform" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Classification :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.classification}" required="true"  requiredMessage="Please enter classification!" id="classification"/>
+                <h:message errorStyle="color:red" for="classification" />
+            </td>
+        </tr>   
+        <tr style="#{cc.attrs.style}">
+            <td>Price :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.price}" required="true" requiredMessage="Please enter price" id="price"/>
+                <h:message errorStyle="color:red" for="price" />
+            </td>
+        </tr>
+        <tr style="#{cc.attrs.style}">
+            <td>Stock Number :</td>
+            <td>
+                <h:inputText value="#{cc.attrs.product.stockNumber}" required="true" requiredMessage="Please enter stock number!" id="stockNumber"/>
+                <h:message errorStyle="color:red" for="stockNumber" />
+            </td>
+        </tr>
+    </composite:implementation>
+</html>

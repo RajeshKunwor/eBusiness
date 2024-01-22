@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Sagar Bk -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+     >
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Create a New Customer</ui:define>
+        <ui:define name="heading">Create a New Customer</ui:define>
+        <ui:define name="content">
+            <h:form>
+                <table border="0">
+
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Name : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{customerController.customer.name}" required="true" requiredMessage="Please enter name!" id="name"/>
+                            <h:message errorStyle="color:red" for="name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Address : "/>
+                        </td>
+                        <td>
+
+                            <h:inputText value="#{customerController.customer.address}" required="true" requiredMessage="Please enter address!" id="address"/>
+                            <h:message errorStyle="color:red" for="address" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Phone Number : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{customerController.customer.phoneNumber}" required="true" requiredMessage="Please enter phone number!" id="phoneNumber"/>
+                            <h:message errorStyle="color:red" for="phoneNumber" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Email : "/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{customerController.customer.email}" required="true" requiredMessage="Please enter email!" id="email"/>
+                            <h:message errorStyle="color:red" for="email" />
+                        </td>
+                    </tr>
+                </table>
+
+                <h:commandButton value="Create a customer" action="#{customerController.doCreateCustomer}"/>
+
+            </h:form>
+            
+        </ui:define>
+        <ui:define name="footer">
+            <a href="listCustomer.faces">Customer List</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Anil Khand -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">Find a Movie</ui:define>
+        <ui:define name="heading">The Found Movie</ui:define>
+        <ui:define name="content">
+
+            <h:dataTable value="#{productController.movieSearchList}" var="m" id="data-table">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet>
+
+                    <h:outputText value="#{m.title}"/>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Company"/>
+                    </f:facet>
+
+                    <h:outputText value="#{m.company}"/>
+
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Platform"/>
+                    </f:facet>
+                    <h:outputText value="#{m.platform}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Classification"/>
+                    </f:facet>
+
+                    <h:outputText value="#{m.classification}"/>
+
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Duration"/>
+                    </f:facet>
+                    <h:outputText value="#{m.duration}"/>minutes
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Description"/>
+                    </f:facet>
+                    <h:outputText value="#{m.description}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Spefical Feature"/>
+                    </f:facet>
+
+                    <h:outputText value="#{m.specialFeatures}"/>
+
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Price"/>
+                    </f:facet>
+                    $<h:outputText value="#{m.price}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Stock Number"/>
+                    </f:facet>
+                    <h:outputText value="#{m.stockNumber}"/>
+
+
+                </h:column>
+            </h:dataTable>
+
+            <p>Total movies: <h:outputText value="#{productController.movieSearchList.size()}"/></p>
+
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="createNewMovie.faces">Create a New Movie</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
+

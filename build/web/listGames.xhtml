@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Designed By Anil Khand -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:st="http://java.sun.com/jsf/composite/store"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="layout.xhtml">
+
+        <ui:define name="title">The Stock of Games</ui:define>
+        <ui:define name="heading">The Stock of Games</ui:define>
+        <ui:define name="content">
+
+
+            <h:dataTable value="#{productController.gameList}" var="g" id="data-table">
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet>
+                    <h:form>
+                        <h:commandLink value="#{g.title}" action="#{productController.getGame(g)}"/>
+                    </h:form>
+
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Platform"/>
+                    </f:facet>
+                    <h:outputText value="#{g.platform}"/>
+                </h:column>
+
+            </h:dataTable>
+
+            <p>Total games: <h:outputText value="#{productController.gameList.size()}"/></p>
+
+        </ui:define>
+        <ui:define name="footer">
+            <a href="createNewGame.faces">Create a New Game</a> | 
+            <a href="default.xhtml">Main Page</a>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
+
